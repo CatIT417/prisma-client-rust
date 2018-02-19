@@ -1,13 +1,10 @@
 [package]
 name = "prisma-client-rust-codegen"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Brendan Allan <brendonovich@outlook.com>"]
 edition = "2018"
 description = "A prisma client for Rust"
 license = "MIT"
-
-[[bin]]
-name = "prisma-client-rust"
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
@@ -21,4 +18,4 @@ convert_case = "0.4.0"
 syn = "1.0.86"
 quote = "1.0.15"
 reqwest = {version="0.11.9", features=["blocking"]}
-prisma-client-rust = {path = "../"}
+prisma-client-rust-core = { path = "../core", version = "0.2.0" }
