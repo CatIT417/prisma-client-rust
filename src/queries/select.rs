@@ -5,8 +5,9 @@ use serde::de::DeserializeOwned;
 
 use crate::{BatchQuery, QueryContext};
 
-pub trait SelectType<T> {
+pub trait SelectType {
     type Data: DeserializeOwned;
+    type ModelData;
 
     fn to_selections(self) -> Vec<Selection>;
 }
