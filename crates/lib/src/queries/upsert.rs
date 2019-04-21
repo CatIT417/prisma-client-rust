@@ -49,11 +49,25 @@ impl<'a, Actions: ModelTypes> Upsert<'a, Actions> {
                 ),
                 (
                     "create".to_string(),
-                    PrismaValue::Object(create_params.into_iter().map(Into::into).collect()).into(),
+                    PrismaValue::Object(
+                        create_params
+                            .into_iter()
+                            .map(Into::into)
+                            .map(|(k, v)| (k.to_string(), v))
+                            .collect(),
+                    )
+                    .into(),
                 ),
                 (
                     "update".to_string(),
-                    PrismaValue::Object(update_params.into_iter().map(Into::into).collect()).into(),
+                    PrismaValue::Object(
+                        update_params
+                            .into_iter()
+                            .map(Into::into)
+                            .map(|(k, v)| (k.to_string(), v))
+                            .collect(),
+                    )
+                    .into(),
                 ),
             ],
             nested_selections,
