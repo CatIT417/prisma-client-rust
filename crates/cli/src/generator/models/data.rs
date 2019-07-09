@@ -165,7 +165,7 @@ pub fn r#struct(model: ModelWalker) -> TokenStream {
     });
 
     quote! {
-        #[derive(Debug, Clone, ::serde::Serialize, ::serde::Deserialize)]
+        #[derive(Debug, Clone, ::serde::Serialize, ::serde::Deserialize, schemars::JsonSchema)]
         #specta_derive
         pub struct Data {
             #(#struct_fields),*
